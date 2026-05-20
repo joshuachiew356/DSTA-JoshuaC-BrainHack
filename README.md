@@ -22,6 +22,6 @@ I can play darts and badminton very well!
 
 ## 🔗 Links 
 
-[![portfolio](https://sg.linkedin.com/in/joshua-chiew-19839a208) 
+[![portfolio](https://wallpapers.com/images/hd/cute-pokemon-snorlax-t7wod9bjkjk3a3m2.jpg) 
 
 [![linkedin](https://sg.linkedin.com/in/joshua-chiew-19839a208)) 
