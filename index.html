@@ -4,6 +4,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script> <!-- Using A-frame version 1.5.0 -->
 	<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/c_frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script> 
+	<script> 
+
+        AFRAME.registerComponent('navigate-on-click', { 
+
+            schema: { 
+
+                url: { type: 'string', default: '' } 
+
+            }, 
+
+ 
+
+            init: function () { 
+
+                var data = this.data; 
+
+                var el = this.el; 
+
+ 
+
+                el.addEventListener('click', function () { 
+
+                    window.open(data.url, '_blank'); 
+
+                }); 
+
+            } 
+
+        }); 
+
+
+</script> 
 </head>
 
 <body>
@@ -13,10 +46,12 @@
 		renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
 		device-orientation-permission-ui="enabled: false">
 
+		
 		<!-- Asset management system -->
 		<!-- For more information: https://aframe.io/docs/1.5.0/core/asset-management-system.html -->
 		<a-assets>
 			<img id="card" src="./images/virtualCard.png">
+			<a-asset-item id="avatarModel" src="./models/MyAvatar.glb"></a-asset-item> 
 		</a-assets>
 
 		<!-- Camera settings -->
@@ -26,7 +61,41 @@
 		<!-- Place your A-Frame Primitives below -->
 		<a-entity mindar-image-target="targetIndex: 0">
 			<a-plane src="#card" position="0 0 0" width="1" height="0.6"  rotation="0 0 0"></a-plane>
-		</a-entity>
+		<a-text text="value: Joshua" align="left" position="-0.44 0.08 0" width="1.5"></a-text> 
+
+<a-text text="value: Senior Engineer" align="left" position="-0.435 0.02 0" width="1"></a-text> 
+<a-text text="value: Contact Me; align: center; width: 1" geometry="primitive: plane; width: 0.25; height: 0.0.5;" material="color: teal; opacity: 0.5" position="0.35 -0.2 0.01" class="clickable" link="href: mailto: cyuehanj@dsta.gov.sg"> 
+
+</a-text> 
+<a-text text="value: Click here for my portfolio; align: center; width: 1" geometry="primitive: plane; width: 0.6; height: 0.1;" material="color: teal; opacity: 0.5" position="0 -0.33 0.01" class="clickable" navigate-on-click="url: https://sg.linkedin.com/in/joshua-chiew-19839a208"> 
+
+</a-text> 	
+<a-entity position="0.3 0.1 0.1" rotation="0 0 0"> 
+<a-gltf-model id="avatarModel" src="#avatarModel" position="0 0 0" rotation="0 0 0" scale="0.4 0.4 0.4" </a-gltf-model> 
+</a-entity>	
+<a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"> 
+
+        <a-sphere position="5 0 0" color="mediumseagreen"></a-sphere> 
+
+</a-entity> 
+</a-entity>
+<a-scene> 
+
+    <a-assets> 
+
+        <a-asset-item id="myModel" src="path/to/model.gltf"></a-asset-item> 
+
+    </a-assets> 
+
+    <!-- Using the animation-mixer to call your specific clip --> 
+
+    <a-gltf-model src="#myModel"  
+
+        animation-mixer="clip: SomeAnim; loop: repeat; timeScale: 1"> 
+
+    </a-gltf-model> 
+
+</a-scene> 
 	</a-scene>
 </body>
 
